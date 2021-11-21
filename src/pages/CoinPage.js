@@ -112,7 +112,7 @@ const CoinPage = () => {
         </Typography>
 
         <Typography variant="subtitle1" className={classes.description}>
-          {ReactHtmlParser(coin.description.en.split(". ")[0])}.
+          {ReactHtmlParser(coin?.description.en.split(". ")[0])}
         </Typography>
         <div className={classes.marketData}>
           <Typography variant="h4" className={classes.marketDataItem}>

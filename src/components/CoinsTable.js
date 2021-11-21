@@ -47,24 +47,13 @@ const useStyles = makeStyles({
 });
 
 const CoinsTable = () => {
-  const [coins, setCoins] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
 
   const history = useHistory();
-  const { currency, symbol } = CryptoState();
+  const { currency, symbol, coins, loading, fetchCoins } = CryptoState();
 
   const classes = useStyles();
-
-  const fetchCoins = async () => {
-    setLoading(true);
-    const { data } = await axios.get(coinList(currency));
-
-    setCoins(data);
-    setLoading(false);
-  };
-  console.log(coins);
 
   useEffect(() => {
     fetchCoins();
